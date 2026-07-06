@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odisea — Brand Guidelines</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #16213E;
+            --accent: #00C39A;
+            --bg-light: #F0F4F8;
+            --gray: #95A5A6;
+            --success: #2ECC71;
+            --error: #E74C3C;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--primary);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(22, 33, 62, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* PORTADA */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0F1623 100%);
+            color: var(--white);
+            padding: 160px 2rem 100px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-svg {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 3rem;
+        }
+
+        /* CONTENIDO */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 60px;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* INTRO */
+        .intro-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .intro-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .intro-box strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* LOGOS */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .logo-item {
+            background: var(--bg-light);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 195, 154, 0.1);
+        }
+
+        .logo-display {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .logo-display svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .logo-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-desc {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* PALETA DE COLORES */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .color-item {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 140px;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.02);
+        }
+
+        .color-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .color-code {
+            font-size: 12px;
+            color: var(--gray);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+        }
+
+        /* TIPOGRAFÍA */
+        .typo-samples {
+            margin-top: 2rem;
+        }
+
+        .typo-sample {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .typo-label {
+            font-size: 11px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .h1-sample {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .h2-sample {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .h3-sample {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .body-sample {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .button-sample {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .button-sample:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        /* DO'S & DON'TS */
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .do-box, .dont-box {
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid;
+        }
+
+        .do-box {
+            background: rgba(46, 204, 113, 0.1);
+            border-left-color: var(--success);
+        }
+
+        .dont-box {
+            background: rgba(231, 76, 60, 0.1);
+            border-left-color: var(--error);
+        }
+
+        .do-box h4, .dont-box h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .do-box h4 {
+            color: var(--success);
+        }
+
+        .dont-box h4 {
+            color: var(--error);
+        }
+
+        .do-box ul, .dont-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .do-box li, .dont-box li {
+            font-size: 13px;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* APLICACIONES */
+        .mockup-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .mockup-label {
+            font-size: 11px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .email-sig {
+            padding: 1.5rem;
+            background: var(--white);
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .email-sig strong {
+            color: var(--accent);
+            display: block;
+        }
+
+        .business-card {
+            background: linear-gradient(135deg, var(--primary) 0%, #0F1623 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .card-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card-contact {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #0F1623 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        footer strong {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            margin-bottom: 0.8rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .do-dont {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* PRINT */
+        @media print {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <a href="#" class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="50" cy="25" r="5" fill="white"/>
+                    <circle cx="30" cy="50" r="4.5"/>
+                    <circle cx="70" cy="50" r="4.5"/>
+                    <circle cx="50" cy="75" r="5" fill="white"/>
+                    <line x1="50" y1="30" x2="30" y2="46"/>
+                    <line x1="50" y1="30" x2="70" y2="46"/>
+                    <line x1="30" y1="54" x2="50" y2="70"/>
+                    <line x1="70" y1="54" x2="50" y2="70"/>
+                    <line x1="30" y1="50" x2="70" y2="50" opacity="0.5"/>
+                </g>
+            </svg>
+            Odisea
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#logo">Logo</a></li>
+            <li><a href="#colores">Colores</a></li>
+            <li><a href="#tipografia">Tipografía</a></li>
+            <li><a href="#voz">Tono de voz</a></li>
+            <li><a href="#aplicaciones">Aplicaciones</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#00C39A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="50" cy="25" r="5" fill="#00C39A"/>
+                <circle cx="30" cy="50" r="4.5"/>
+                <circle cx="70" cy="50" r="4.5"/>
+                <circle cx="50" cy="75" r="5" fill="#00C39A"/>
+                <line x1="50" y1="30" x2="30" y2="46"/>
+                <line x1="50" y1="30" x2="70" y2="46"/>
+                <line x1="30" y1="54" x2="50" y2="70"/>
+                <line x1="70" y1="54" x2="50" y2="70"/>
+                <line x1="30" y1="50" x2="70" y2="50" opacity="0.5"/>
+            </g>
+        </svg>
+        <h1>Odisea</h1>
+        <div class="hero-subtitle">Red de protección conectada</div>
+        <div class="hero-meta">Brand Guidelines v1.0</div>
+    </div>
+
+    <!-- INTRODUCCIÓN -->
+    <section id="introduccion">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <h2>Introducción</h2>
+            </div>
+            <p><strong>Odisea</strong> es una plataforma de marketing para agentes de seguros. Somos modernos, confiables y directos. Nuestro branding representa una red de protección conectada donde cada agente es parte de un ecosistema más grande.</p>
+            
+            <div class="intro-boxes">
+                <div class="intro-box">
+                    <strong>Misión</strong>
+                    Empoderar a agentes de seguros con herramientas modernas, cotizaciones rápidas y conexión real con clientes.
+                </div>
+                <div class="intro-box">
+                    <strong>Valores</strong>
+                    Confianza • Modernidad • Conexión • Claridad • Accesibilidad
+                </div>
+                <div class="intro-box">
+                    <strong>Promesa</strong>
+                    Una red de protección donde cada agente prospera en un ecosistema moderno y transparente.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SISTEMA DE LOGOTIPO -->
+    <section id="logo">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h2>Sistema de logotipo</h2>
+            </div>
+            <p><strong>Concepto:</strong> El isotipo modular de Odisea está formado por 5 puntos conectados en forma de escudo. Representa una red de protección, modernidad y conexión entre agentes.</p>
+            
+            <h3>Variantes del logo</h3>
+            <div class="logo-grid">
+                <div class="logo-item">
+                    <div class="logo-display">
+                        <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g stroke="#00C39A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="50" cy="25" r="5" fill="#00C39A"/>
+                                <circle cx="30" cy="50" r="4.5"/>
+                                <circle cx="70" cy="50" r="4.5"/>
+                                <circle cx="50" cy="75" r="5" fill="#00C39A"/>
+                                <line x1="50" y1="30" x2="30" y2="46"/>
+                                <line x1="50" y1="30" x2="70" y2="46"/>
+                                <line x1="30" y1="54" x2="50" y2="70"/>
+                                <line x1="70" y1="54" x2="50" y2="70"/>
+                                <line x1="30" y1="50" x2="70" y2="50" opacity="0.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="logo-label">Isotipo modular</div>
+                    <div class="logo-desc">5 puntos conectados. Uso: Favicon, avatar, redes sociales. Mínimo: 24px</div>
+                </div>
+
+                <div class="logo-item">
+                    <div class="logo-display" style="gap: 0.8rem; display: flex; align-items: center; justify-content: center;">
+                        <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g stroke="#00C39A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="50" cy="25" r="5" fill="#00C39A"/>
+                                <circle cx="30" cy="50" r="4.5"/>
+                                <circle cx="70" cy="50" r="4.5"/>
+                                <circle cx="50" cy="75" r="5" fill="#00C39A"/>
+                                <line x1="50" y1="30" x2="30" y2="46"/>
+                                <line x1="50" y1="30" x2="70" y2="46"/>
+                                <line x1="30" y1="54" x2="50" y2="70"/>
+                                <line x1="70" y1="54" x2="50" y2="70"/>
+                            </g>
+                        </svg>
+                        <span style="font-size: 24px; font-weight: 700; color: #16213E; font-family: 'Poppins', sans-serif;">Odisea</span>
+                    </div>
+                    <div class="logo-label">Logo horizontal</div>
+                    <div class="logo-desc">Isotipo + logotipo en línea. Uso: Headers, email signature. Mínimo: 120px</div>
+                </div>
+
+                <div class="logo-item">
+                    <div class="logo-display" style="flex-direction: column; gap: 0.5rem;">
+                        <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g stroke="#00C39A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="50" cy="25" r="5" fill="#00C39A"/>
+                                <circle cx="30" cy="50" r="4.5"/>
+                                <circle cx="70" cy="50" r="4.5"/>
+                                <circle cx="50" cy="75" r="5" fill="#00C39A"/>
+                                <line x1="50" y1="30" x2="30" y2="46"/>
+                                <line x1="50" y1="30" x2="70" y2="46"/>
+                                <line x1="30" y1="54" x2="50" y2="70"/>
+                                <line x1="70" y1="54" x2="50" y2="70"/>
+                            </g>
+                        </svg>
+                        <div style="text-align: center;">
+                            <div style="font-size: 14px; font-weight: 600; color: #16213E; font-family: 'Poppins', sans-serif;">Odisea</div>
+                            <div style="font-size: 10px; color: #00C39A; letter-spacing: 0.5px; font-weight: 600;">MARKETING</div>
+                        </div>
+                    </div>
+                    <div class="logo-label">Vertical con descriptor</div>
+                    <div class="logo-desc">Para email signatures y perfiles. Mínimo: 24px</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PALETA DE COLORES -->
+    <section id="colores">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <h2>Paleta de colores</h2>
+            </div>
+            <p>Nuestra paleta transmite confianza, modernidad y accesibilidad. Cada color tiene un propósito específico en la comunicación.</p>
+            
+            <div class="color-palette">
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #16213E; color: white;">Primario</div>
+                    <div class="color-name">Azul nocturno</div>
+                    <div class="color-code">#16213E</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #00C39A; color: white;">Acento</div>
+                    <div class="color-name">Mint vibrante</div>
+                    <div class="color-code">#00C39A</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #F0F4F8;">Fondo</div>
+                    <div class="color-name">Blanco azulado</div>
+                    <div class="color-code">#F0F4F8</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #FFFFFF; border: 2px solid #DDDDDD;">Blanco</div>
+                    <div class="color-name">Blanco puro</div>
+                    <div class="color-code">#FFFFFF</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #95A5A6;">Neutro</div>
+                    <div class="color-name">Gris profesional</div>
+                    <div class="color-code">#95A5A6</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #2ECC71;">Éxito</div>
+                    <div class="color-name">Verde confirmación</div>
+                    <div class="color-code">#2ECC71</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #E74C3C;">Alerta</div>
+                    <div class="color-name">Rojo importante</div>
+                    <div class="color-code">#E74C3C</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Uso de colores</h3>
+            <div class="intro-boxes">
+                <div class="intro-box">
+                    <strong>#16213E — Azul primario</strong>
+                    Fondos principales, textos de jeraquía alta, estructuras y bordes importantes.
+                </div>
+                <div class="intro-box">
+                    <strong>#00C39A — Mint</strong>
+                    Logo, botones principales, acentos visuales, elementos interactivos y CTAs.
+                </div>
+                <div class="intro-box">
+                    <strong>#F0F4F8 — Fondo claro</strong>
+                    Tarjetas, fondos secundarios, espacios en blanco y secciones alternas.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIPOGRAFÍA -->
+    <section id="tipografia">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <h2>Tipografía</h2>
+            </div>
+            <p><strong>Poppins</strong> para encabezados transmite modernidad y confianza. <strong>Inter</strong> para cuerpo asegura legibilidad en cualquier tamaño.</p>
+            
+            <h3>Jerarquía tipográfica</h3>
+            <div class="typo-samples">
+                <div class="typo-sample">
+                    <div class="typo-label">H1 — Poppins Bold 42px</div>
+                    <div class="h1-sample">Red de protección conectada</div>
+                </div>
+
+                <div class="typo-sample">
+                    <div class="typo-label">H2 — Poppins SemiBold 32px</div>
+                    <div class="h2-sample">Cotización disponible</div>
+                </div>
+
+                <div class="typo-sample">
+                    <div class="typo-label">H3 — Poppins SemiBold 24px</div>
+                    <div class="h3-sample">Sistema de logotipo</div>
+                </div>
+
+                <div class="typo-sample">
+                    <div class="typo-label">Body — Inter Regular 15px</div>
+                    <div class="body-sample">Odisea conecta agentes de seguros en una red moderna. Cotizaciones rápidas, comisiones claras, crecimiento sostenido.</div>
+                </div>
+            </div>
+
+            <h3>Botones y CTAs</h3>
+            <div style="margin-top: 1.5rem;">
+                <button class="button-sample btn-primary">✓ Cotización lista</button>
+                <button class="button-sample btn-secondary">Solicitar cotización</button>
+                <button class="button-sample btn-outline">Ver planes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TONO DE VOZ -->
+    <section id="voz">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">05</div>
+                <h2>Tono de voz</h2>
+            </div>
+            <p>Nuestra voz es confiable, moderno, directo y accesible. Evitamos el jargon corporativo frío y las promesas vagas.</p>
+            
+            <div class="do-dont">
+                <div class="do-box">
+                    <h4>✓ Hazlo así</h4>
+                    <ul>
+                        <li><strong>Confiable:</strong> "Tu cobertura está confirmada"</li>
+                        <li><strong>Moderno:</strong> "Red de protección en tu bolsillo"</li>
+                        <li><strong>Directo:</strong> "Cotización en 2 minutos"</li>
+                        <li><strong>Accesible:</strong> "¿Dudas? Chatea con nosotros"</li>
+                        <li><strong>Empoderador:</strong> "Crece con Odisea"</li>
+                    </ul>
+                </div>
+                <div class="dont-box">
+                    <h4>✗ Evita esto</h4>
+                    <ul>
+                        <li><strong>Corporativo frío:</strong> "Optimización de portafolio"</li>
+                        <li><strong>Jargon técnico:</strong> "Sinergias de cobertura"</li>
+                        <li><strong>Ventas agresivas:</strong> "¡OFERTA LIMITADA!"</li>
+                        <li><strong>Clichés:</strong> "Somos líderes del mercado"</li>
+                        <li><strong>Vago:</strong> "Soluciones inteligentes"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APLICACIONES -->
+    <section id="aplicaciones">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">06</div>
+                <h2>Aplicaciones</h2>
+            </div>
+
+            <h3>Email signature corporativo</h3>
+            <div class="mockup-section">
+                <div class="mockup-label">Ejemplo en Gmail</div>
+                <div class="email-sig">
+                    <strong>María Hernández</strong>
+                    <strong style="color: #00C39A; font-size: 12px; font-weight: 600;">Agente de Seguros • Odisea</strong>
+                    📧 maria@odisea.com | 📱 +52 8181 11 3041
+                </div>
+            </div>
+
+            <h3>Tarjeta de presentación</h3>
+            <div class="mockup-section">
+                <div class="mockup-label">Frente de tarjeta</div>
+                <div class="business-card">
+                    <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem;">
+                        <g stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="50" cy="25" r="5" fill="white"/>
+                            <circle cx="30" cy="50" r="4.5"/>
+                            <circle cx="70" cy="50" r="4.5"/>
+                            <circle cx="50" cy="75" r="5" fill="white"/>
+                            <line x1="50" y1="30" x2="30" y2="46"/>
+                            <line x1="50" y1="30" x2="70" y2="46"/>
+                            <line x1="30" y1="54" x2="50" y2="70"/>
+                            <line x1="70" y1="54" x2="50" y2="70"/>
+                        </g>
+                    </svg>
+                    <div class="card-name">María Hernández</div>
+                    <div class="card-title">Agente Certificada</div>
+                    <div class="card-contact">📧 maria@odisea.com<br/>📱 +52 8181 11 3041</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUÍA DE USO -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">07</div>
+                <h2>Guía de uso</h2>
+            </div>
+            
+            <div class="do-dont">
+                <div class="do-box">
+                    <h4>✓ Correcto</h4>
+                    <ul>
+                        <li>Usar en color mint sobre fondos oscuros</li>
+                        <li>Mantener proporciones originales</li>
+                        <li>Respetar espacios mínimos (1/4 de altura)</li>
+                        <li>Usar sobre fondos blancos o #F0F4F8</li>
+                        <li>Máximo 2 colores en composiciones</li>
+                    </ul>
+                </div>
+                <div class="dont-box">
+                    <h4>✗ Incorrecto</h4>
+                    <ul>
+                        <li>No estirar ni comprimir el logo</li>
+                        <li>No cambiar colores arbitrariamente</li>
+                        <li>No añadir sombras o efectos</li>
+                        <li>No usar sobre fondos muy coloridos</li>
+                        <li>No inclinar o rotar el logo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <strong>Odisea</strong>
+        <p>Red de protección conectada</p>
+        <p style="margin-top: 1rem; font-size: 12px;">Brand Guidelines v1.0 | hello@odisea.com</p>
+    </footer>
+
+</body>
+</html>
